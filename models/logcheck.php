@@ -3,7 +3,7 @@
 
     session_start(); // Inicia una sesión
 
-    require '../../models/database.php';
+    require '../models/database.php';
 
     if(isset($_SESSION['user_id'])){ // Si existe una sesión
         $records = $conn->prepare('SELECT id, name, email, phone, password FROM users WHERE id = :id');
@@ -18,7 +18,7 @@
         }
 
     }else{
-        header('location: ../views/login.php');
+        header('location: ./login.php');
     }
 
 ?>
