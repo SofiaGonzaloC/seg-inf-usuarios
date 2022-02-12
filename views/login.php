@@ -37,7 +37,7 @@ include_once("../models/login.php")
 
                                 <form action="#" method="POST">
                                     <div class="form-group input-rounded">
-                                        <input type="text" class="form-control" placeholder="Correo" name="email" />
+                                        <input type="text" class="form-control" placeholder="Usuario" name="username" />
                                     </div>
                                     <div class="form-group input-rounded">
                                         <input type="password" class="form-control" placeholder="Contraseña" name="password" />
