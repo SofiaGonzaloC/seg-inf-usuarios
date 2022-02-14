@@ -1,25 +1,28 @@
 <?php
+
+//Función para validad password
 function validar_clave($password,&$message){
-     
+   //Validación de mayor a 8 caracteres
    if(strlen($password) < 8){
       $message = "La clave debe tener al menos 8 caracteres";
       return false;
    }
+   //Valicación de minusculas
    if (!preg_match('`[a-z]`',$password)){
       $message = "La clave debe tener al menos una letra minúscula";
       return false;
    }
-   
+   //Validación de Mayusculas
    if (!preg_match('`[A-Z]`',$password)){
       $message = "La clave debe tener al menos una letra mayúscula";
       return false;
    }
-   
+   //Validación de caracteres numericos
    if (!preg_match('`[0-9]`',$password)){
       $message = "La clave debe tener al menos un caracter numérico";
       return false;
    }
-
+   //Valicación de caracteres especiales
    if (!preg_match('`[@!#$%^&*()<>?/|}{~:]`', $password)){
       $message = "La clave debe tener al menos un caracter especial";
       return false;      
@@ -30,7 +33,7 @@ function validar_clave($password,&$message){
 }
 $message = '';
 
-//123No437
+//123No437!
 // Si los campos NO estan vacios ...
 if (!empty($_POST['username']) && !empty($_POST['nombre']) && !empty($_POST['apellido_pat']) && !empty($_POST['apellido_mat']) && !empty($_POST['telefono']) && !empty($_POST['direccion']) && !empty($_POST['password']) && !empty($_POST['password_conf'])) {
   if($_POST['password'] == $_POST['password_conf']){
@@ -76,7 +79,7 @@ if (!empty($_POST['username']) && !empty($_POST['nombre']) && !empty($_POST['ape
             } else {
             $message = 'Hubo un error, intentalo de nuevo.';
          }
-         } else if ($res == 1) { // Si el email ya esta en uso
+         } else if ($res == 1) { // Si el usuario ya esta en uso
             $message = 'El nombre de usuario ya esta en uso.';
          }
       }      
