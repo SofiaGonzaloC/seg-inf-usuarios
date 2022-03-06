@@ -67,10 +67,20 @@ if (!empty($_POST['username']) && !empty($_POST['nombre']) && !empty($_POST['ape
             $stmt->bindParam(':direccion', $direccion);
             $stmt->bindParam(':telefono', $telefono);
       
-     
+            /*
             //cifra la contraseña
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $stmt->bindParam(':password', $password);
+            */
+            
+            
+            $password = openssl_encrypt($_POST['password'], 'AES-128-ECB', OPENSSL_RAW_DATA);
+            $password = base64_encode($password);
+                         
+            $stmt->bindParam(':password', $password);
+            
+            
+            
 
             if ($stmt->execute()) { // Se realiza el registro y se crea la tarjeta
             // La cuenta es creada con éxito y se manda al login
