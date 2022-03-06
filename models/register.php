@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 //Función para validad password
 function validar_clave($password,&$message){
    //Validación de mayor a 8 caracteres
@@ -31,6 +33,17 @@ function validar_clave($password,&$message){
    return true;
    
 }
+
+function encrypt_password($password){
+   $cypher_method = 'AES-128-CTR';        // Método de cifrado
+   $option = 0;
+   $encryption_iv =  '1234567890123456'; // Vector inicializacion
+   $encrypt_key = 'seguridadinformatica';
+   
+   // Retorna la contraseña ya encriptada
+   return openssl_encrypt($password, $cypher_method, $encryption_iv, $option, $encrypt_key);
+}
+
 $message = '';
 
 //123No437!
@@ -69,7 +82,7 @@ if (!empty($_POST['username']) && !empty($_POST['nombre']) && !empty($_POST['ape
       
      
             //cifra la contraseña
-            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $password = encrypt_password($_POST['password']);
             $stmt->bindParam(':password', $password);
 
             if ($stmt->execute()) { // Se realiza el registro y se crea la tarjeta
