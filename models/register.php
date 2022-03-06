@@ -68,7 +68,7 @@ if (!empty($_POST['username']) && !empty($_POST['nombre']) && !empty($_POST['ape
             $stmt->bindParam(':telefono', $telefono);
       
             
-            //Encriptar la contraseña
+            //Encriptar la contraseña.
             $password = openssl_encrypt($_POST['password'], 'AES-128-ECB', OPENSSL_RAW_DATA);
             $password = base64_encode($password);
                          
