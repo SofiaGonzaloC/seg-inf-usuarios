@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
     $message = '';
-
+    //Se desencripta la contraseña
     $db_password= openssl_decrypt(base64_decode($results['password']), 'AES-128-ECB', OPENSSL_RAW_DATA);
 
     if (!empty($results) > 0 && $_POST['password'] == $db_password) { // Compara la contraseña de db con la que pone el usuario
