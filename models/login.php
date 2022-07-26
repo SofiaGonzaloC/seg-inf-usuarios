@@ -8,7 +8,7 @@
 */
 session_start(); // Inicializa la variable _SESSION
 
-require '../models/database.php';
+require 'database.php';
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once("../models/logcheck.php");
+require_once("./models/logcheck.php");
 ?>
 
 

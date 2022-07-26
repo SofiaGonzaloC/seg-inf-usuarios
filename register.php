@@ -1,6 +1,6 @@
 <?php
-require('../models/database.php');
-include_once("../models/register.php");
+require('./models/database.php');
+include_once("./models/register.php");
 ?>
 
 <!-- HTML -->
