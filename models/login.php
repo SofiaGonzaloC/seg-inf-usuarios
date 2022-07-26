@@ -27,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if (!empty($results) > 0 && $_POST['password'] == $db_password) { // Compara la contraseña de db con la que pone el usuario
       $_SESSION['user_id'] = $results['id'];
       
-      header('location: ./home.php');
+      header('location: ./index.php');
     } else {
       $message = 'La contraseña es incorrecta'; // No esta funcionando
     }

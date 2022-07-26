@@ -6,6 +6,6 @@
 
     session_destroy(); // Cierra la sesión
 
-    header('location: ../views/login.php'); // Redirecciona a login
+    header('location: ../login.php'); // Redirecciona a login
 
 ?>

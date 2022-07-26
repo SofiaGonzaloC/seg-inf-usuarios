@@ -22,7 +22,7 @@ require_once("./models/logcheck.php");
         <br>
         <br>
         <div style='text-align:center'><?= $user['username'] ?></div>
-        <div style='padding-top: 150px'><p class="login-register-text"><a href="../models/logout.php">Cerrar sesión</a></p></div>
+        <div style='padding-top: 150px'><p class="login-register-text"><a href="./models/logout.php">Cerrar sesión</a></p></div>
     </div>
 </body>
 </html>
